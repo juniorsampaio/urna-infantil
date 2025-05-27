@@ -1,46 +1,83 @@
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f0f8ff;
   text-align: center;
-  background-color: #fff0f5;
   margin: 0;
   padding: 20px;
+  color: #333;
 }
 
 h1 {
-  color: #cc3366;
+  font-size: 2em;
   margin-bottom: 30px;
+  color: #0066cc;
 }
 
 .book-container {
   display: flex;
   justify-content: center;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .book {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 220px;
   cursor: pointer;
-  border: 3px solid #cc3366;
-  border-radius: 15px;
-  padding: 10px;
-  width: 180px;
-  background-color: #ffe6f0;
-  box-shadow: 3px 3px 8px rgba(204, 51, 102, 0.4);
-  transition: transform 0.3s ease;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .book:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  background-color: #e0f7ff;
 }
 
 .book img {
-  width: 100%;
-  border-radius: 12px;
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .book p {
-  font-weight: bold;
-  color: #cc3366;
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 1.2em;
+  color: #333;
+}
+
+.confirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.confirmacao img {
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.confirmacao p {
+  font-size: 1.5em;
+  margin-top: 15px;
+  color: #006600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .book-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
