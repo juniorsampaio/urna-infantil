@@ -1,6 +1,7 @@
 function votar(livro) {
   // Envia o voto para o Apps Script
-  fetch('SUA_URL_DO_APPS_SCRIPT', {
+  fetch('https://script.google.com/macros/s/AKfycbwRq03rmyrSi_vHC4_Zo
+', {
     method: 'POST',
     mode: 'no-cors',
     headers: {
