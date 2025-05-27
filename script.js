@@ -1,34 +1,26 @@
-function votar(livro) {
-  // Envia o voto para o Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbwRq03rmyrSi_vHC4_Zo
-', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ livro: livro })
-  });
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urna Infantil - Escolha Seu Livro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Qual livro você quer escolher?</h1>
+  <div class="book-container">
+    <div class="book" onclick="votar('O Pequeno Príncipe')">
+      <img src="pequeno_principe.jpg" alt="O Pequeno Príncipe" />
+      <p>O Pequeno Príncipe</p>
+    </div>
+    <div class="book" onclick="votar('Chapeuzinho Vermelho')">
+      <img src="chapeuzinho_vermelho.jpg" alt="Chapeuzinho Vermelho" />
+      <p>Chapeuzinho Vermelho</p>
+    </div>
+  </div>
 
-  // Mostra a tela de agradecimento
-  document.querySelector('.container').style.display = 'none';
-  const tela = document.getElementById('telaAgradecimento');
-  tela.style.display = 'flex';
+  <audio id="audioAgradecimento" src="agradecimento.mp3" preload="auto"></audio>
 
-  // Mostra a imagem correspondente
-  const img = document.getElementById('livroEscolhidoImg');
-  if (livro === 'Capa 1') {
-    img.src = 'CAPA1.jpg';
-  } else if (livro === 'Capa 2') {
-    img.src = 'CAPA2.jpg';
-  }
-
-  // Reproduz o áudio e volta para a tela inicial
-  const audio = document.getElementById('audioAgradecimento');
-  audio.play();
-  audio.onended = () => {
-    tela.style.display = 'none';
-    document.querySelector('.container').style.display = 'flex';
-  };
-}
-
+  <script src="script.js"></script>
+</body>
+</html>
