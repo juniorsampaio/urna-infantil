@@ -1,35 +1,33 @@
 function votar(livro) {
-  let imagem = "";
-
-  if (livro === "O Pequeno Príncipe") {
-    imagem = "pequeno_principe.jpg";
-  } else if (livro === "Chapeuzinho Vermelho") {
-    imagem = "chapeuzinho_vermelho.jpg";
-  }
-
-  // Atualiza a tela com agradecimento e imagem
-  document.body.innerHTML = `
-    <div class="confirmacao">
-      <h1>Obrigado pelo seu voto!</h1>
-      <img src="${imagem}" alt="${livro}" class="imagem-confirmacao">
-      <p>Você votou em <strong>${livro}</strong></p>
-      <audio id="audioAgradecimento" autoplay>
-        <source src="agradecimento.mp3" type="audio/mpeg">
-        Seu navegador não suporta áudio.
-      </audio>
-    </div>
-  `;
-
-  // Envia o voto
-  fetch('https://script.google.com/macros/s/AKfycbwRq03rmyrSi_vHC4_ZoHiMfEMOe8CvOh0YfCcCziwmKDWbhgz2LuhI_2V-DwwKjncusA/exec', {
+  // Envia o voto para o Apps Script
+  fetch('SUA_URL_DO_APPS_SCRIPT', {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ livro: livro })
   });
 
-  // Volta para a tela principal após 5 segundos
-  setTimeout(() => {
-    location.reload();
-  }, 5000);
+  // Mostra a tela de agradecimento
+  document.querySelector('.container').style.display = 'none';
+  const tela = document.getElementById('telaAgradecimento');
+  tela.style.display = 'flex';
+
+  // Mostra a imagem correspondente
+  const img = document.getElementById('livroEscolhidoImg');
+  if (livro === 'Capa 1') {
+    img.src = 'CAPA1.jpg';
+  } else if (livro === 'Capa 2') {
+    img.src = 'CAPA2.jpg';
+  }
+
+  // Reproduz o áudio e volta para a tela inicial
+  const audio = document.getElementById('audioAgradecimento');
+  audio.play();
+  audio.onended = () => {
+    tela.style.display = 'none';
+    document.querySelector('.container').style.display = 'flex';
+  };
 }
+
