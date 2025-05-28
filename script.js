@@ -10,7 +10,7 @@ function votar(livro) {
   // Atualiza a tela com agradecimento e imagem
   document.body.innerHTML = `
     <div class="confirmacao">
-      <h1>Obrigado pelo seu voto!</h1>
+      <h1>Obrigada pelo seu voto!</h1>
       <img src="${imagem}" alt="${livro}" class="imagem-confirmacao">
       <p>Você votou em <strong>${livro}</strong></p>
       <audio id="audioAgradecimento" autoplay>
