@@ -1,7 +1,7 @@
 function votar(livro) {
   let imagem = "";
 
-  if (livro === "CAPA 1") {
+  if (livro === "CAPA 1;      pequeno_principe.jpg") {
     imagem = "pequeno_principe.jpg";
   } else if (livro === "CAPA 2") {
     imagem = "chapeuzinho_vermelho.jpg";
