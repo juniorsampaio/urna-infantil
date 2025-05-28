@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Urna Infantil - Escolha Seu Livro</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urna de Votação - Livro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ESCOLHA A CAPA DO LIVRO</h1>
+
+  <h1>ESCOLHA UMA CAPA</h1>
 
   <div class="book-container">
-    <div class="book" onclick="votar('O Pequeno Príncipe', 'pequeno_principe.jpg')">
+    <div class="book" onclick="votar('O Pequeno Príncipe')">
       <img src="pequeno_principe.jpg" alt="O Pequeno Príncipe">
       <p>CAPA 1</p>
     </div>
 
-    <div class="book" onclick="votar('Chapeuzinho Vermelho', 'chapeuzinho_vermelho.jpg')">
+    <div class="book" onclick="votar('Chapeuzinho Vermelho')">
       <img src="chapeuzinho_vermelho.jpg" alt="Chapeuzinho Vermelho">
       <p>CAPA 2</p>
     </div>
   </div>
 
-  <div id="confirmacao" class="confirmacao" style="display: none;">
-    <h2>Obrigado pelo seu voto!</h2>
-    <img id="livroImagem" src="" alt="" />
-    <p id="livroNome"></p>
-  </div>
+  <!-- Tela de agradecimento -->
+  <div id="agradecimento" style="display: none; flex-direction: column; align-items: center; justify-content: center;">
+  <h2>Obrigado por votar!</h2>
+  <img id="imagemEscolhida" src="" alt="Livro Escolhido" style="width: 200px; height: auto;">
+</div>
 
   <audio id="audioAgradecimento" src="agradecimento.mp3" preload="auto"></audio>
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
