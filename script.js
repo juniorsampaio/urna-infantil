@@ -1,9 +1,9 @@
 function votar(livro) {
   let imagem = "";
 
-  if (livro === "O Pequeno Príncipe") {
+  if (livro === "CAPA 1") {
     imagem = "pequeno_principe.jpg";
-  } else if (livro === "Chapeuzinho Vermelho") {
+  } else if (livro === "CAPA 2") {
     imagem = "chapeuzinho_vermelho.jpg";
   }
 
@@ -11,7 +11,7 @@ function votar(livro) {
   document.body.innerHTML = `
     <div class="confirmacao">
       <h1>Obrigada pelo seu voto!</h1>
-      <img src="${imagem}" alt="${livro}" style="width: 200px; height: auto;" class="imagem-confirmacao">
+      <img src="${imagem}" alt="${livro}" style="width: 400px; height: auto;" class="imagem-confirmacao">
       <p>Você votou em <strong>${livro}</strong></p>
       <audio id="audioAgradecimento" autoplay>
         <source src="agradecimento.mp3" type="audio/mpeg">
